@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #28a745; /* Spremeni barvo gumba na zeleno */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.tab-content {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="number"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #28a745; /* Zeleno barvo za gumb */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838; /* Temnejša zeleno barvo ob hoverju */
+}
+
+#expenseList {
+    margin-top: 20px;
+}
+
+#totalExpenses, #remainingBudget {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#fuelCost, #saveResult, #monthlyCosts, #spendingSummary {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#categoryAnalysis {
+    margin-top: 10px;
+}

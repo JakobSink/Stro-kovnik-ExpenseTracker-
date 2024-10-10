@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napreden Sledilec Stroškov</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Napreden Sledilec Stroškov</h1>
+    <div class="tabs">
+        <button class="tab" onclick="odpriZavihek('stroski')">Stroški</button>
+        <button class="tab" onclick="odpriZavihek('varčevanje')">Varčevanje</button>
+        <button class="tab" onclick="odpriZavihek('analiza')">Analiza</button>
+        <button class="tab" onclick="odpriZavihek('bencin')">Bencin</button>
+        <button class="tab" onclick="odpriZavihek('stroški')">Stroški Osebe</button>
+    </div>
+
+    <div class="tab-content" id="stroski">
+        <h3>Dodaj Stroške</h3>
+        <div class="input-group">
+            <label for="description">Opis:</label>
+            <input type="text" id="description" placeholder="Vnesi opis">
+        </div>
+        <div class="input-group">
+            <label for="amount">Znesek (€):</label>
+            <input type="number" id="amount" placeholder="Vnesi znesek">
+        </div>
+        <div class="input-group">
+            <label for="category">Kategorija:</label>
+            <select id="category">
+                <option value="Hrana">Hrana</option>
+                <option value="Prevoz">Prevoz</option>
+                <option value="Zabava">Zabava</option>
+                <option value="Nakupi">Nakupi</option>
+                <option value="Ostalo">Ostalo</option>
+            </select>
+        </div>
+        <button class="btn" onclick="dodajStrosek()">Dodaj Strošek</button>
+        <div id="expenseList"></div>
+        <div id="totalExpenses">Skupaj Stroški: 0€</div>
+        <div id="remainingBudget">Preostali Proračun: 0€</div>
+    </div>
+
+    <div class="tab-content" id="varčevanje">
+        <h3>Varčevanje</h3>
+        <div class="input-group">
+            <label for="numPeople">Število Oseb:</label>
+            <input type="number" id="numPeople" value="1" min="1" max="10" onchange="posodobiOsebe()">
+        </div>
+        <div id="osebe"></div>
+        <div class="input-group">
+            <label for="savingsMethod">Metoda varčevanja:</label>
+            <select id="savingsMethod">
+                <option value="50/30/20">50/30/20</option>
+                <option value="70/20/10">70/20/10</option>
+                <option value="100">100%</option>
+            </select>
+        </div>
+        <button class="btn" onclick="izračunajVarčevanje()">Izračunaj Varčevanje</button>
+        <div id="saveResult"></div>
+        <div id="spendingSummary"></div>
+    </div>
+
+    <div class="tab-content" id="analiza">
+        <h3>Analiza Stroškov</h3>
+        <button class="btn" onclick="prikaziRazrezKategorij()">Prikaz razreza po kategorijah</button>
+        <div id="categoryAnalysis"></div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="tab-content" id="bencin">
+        <h3>Izračun Stroškov Bencina</h3>
+        <div class="input-group">
+            <label for="liters">Število Litrov:</label>
+            <input type="number" id="liters" placeholder="Vnesi število litrov">
+        </div>
+        <div class="input-group">
+            <label for="pricePerLiter">Cena na Liter (€):</label>
+            <input type="number" id="pricePerLiter" placeholder="Vnesi ceno na liter">
+        </div>
+        <button class="btn" onclick="izracunajBencin()">Izračunaj Stroške Bencina</button>
+        <div id="fuelCost"></div>
+    </div>
+
+    <div class="tab-content" id="stroški">
+        <h3>Mesečni Stroški Osebe</h3>
+        <div class="input-group">
+            <label for="rent">Najemnina (€):</label>
+            <input type="number" id="rent" placeholder="Vnesi najemnino">
+        </div>
+        <div class="input-group">
+            <label for="utilities">Komunalni Stroški (€):</label>
+            <input type="number" id="utilities" placeholder="Vnesi komunalne stroške">
+        </div>
+        <div class="input-group">
+            <label for="credit">Kredit (€):</label>
+            <input type="number" id="credit" placeholder="Vnesi kredit">
+        </div>
+        <button class="btn" onclick="izracunajStroske()">Izračunaj Stroške</button>
+        <div id="monthlyCosts"></div>
+    </div>
+
+    <script src="advancedExpenseTracker.js"></script>
+</body>
+</html>
